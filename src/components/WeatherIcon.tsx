@@ -1,12 +1,12 @@
 import React from 'react';
 import {WiCloudy, WiDaySunny, WiRain, WiSnow} from 'react-icons/wi';
 
-interface WeatherPictogram {
+interface WeatherIconInterface {
     weather: string | undefined
     iconSize: number
 }
 
-export const WeatherPictogram = ({weather, iconSize}: WeatherPictogram) => {
+export const WeatherIcon = ({weather, iconSize}: WeatherIconInterface) => {
     if (!weather) {
         return null
     }
