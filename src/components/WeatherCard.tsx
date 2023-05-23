@@ -31,7 +31,7 @@ export const WeatherCard: React.FC = () => {
 
     return (
         <React.Fragment>
-            <p>{JSON.stringify(weatherData)}</p>
+            <p>{JSON.stringify(weatherData, null, 2)}</p>
             <WeatherPictogram weather={weatherData?.weather} iconSize={64}/>
             {loading && <p>Loading...</p>}
             {!weatherData && <p>Cannot load the weather data</p>}
