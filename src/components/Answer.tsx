@@ -1,10 +1,10 @@
 import {WeatherData} from "./WeatherData";
 
-interface Answer {
+interface AnswerInterface {
     weatherData: WeatherData
 }
 
 
-export const Answer = ({weatherData}: Answer) => {
+export const Answer = ({weatherData}: AnswerInterface) => {
     const maxWind = 10
 }
