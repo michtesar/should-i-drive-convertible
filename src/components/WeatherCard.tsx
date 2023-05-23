@@ -25,8 +25,7 @@ export const WeatherCard: React.FC = () => {
             }
         };
 
-        fetchWeather().then(r => {
-        });
+        fetchWeather().then(() => {});
     }, []);
 
     return (
