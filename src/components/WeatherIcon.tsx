@@ -37,7 +37,7 @@ export const WeatherIcon = ({weatherCode, iconSize}: WeatherIconInterface) => {
             return <WiShowers size={iconSize}/>
         } else if (isNumberInList(weatherCode, snowShowers)) {
             return <WiDaySnow size={iconSize}/>
-        } else if (isNumberInList(weatherCode, snowShowers)) {
+        } else if (isNumberInList(weatherCode, thunderstorm)) {
             return <WiDayLightning size={iconSize}/>
         }
     }
