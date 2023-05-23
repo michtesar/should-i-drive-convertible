@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 
 import {fetchWeatherData} from "../utils/api";
+import {Answer} from "./Answer";
 import {WeatherData} from "./WeatherData";
-import {WeatherIcon} from "./WeatherIcon";
+import {CurrentWeather} from "./CurrentWeather";
 
 export const WeatherCard: React.FC = () => {
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
@@ -25,15 +26,18 @@ export const WeatherCard: React.FC = () => {
             }
         };
 
-        fetchWeather().then(() => {});
+        fetchWeather().then(() => {
+        });
     }, []);
 
     return (
         <React.Fragment>
-            <p>{JSON.stringify(weatherData, null, 2)}</p>
-            <WeatherIcon weatherCode={weatherData?.currentWeather.weatherCode} iconSize={64}/>
+            {weatherData && <CurrentWeather temperature={weatherData?.currentWeather.temperature}
+                                            temperatureUnits={weatherData?.hourlyUnits.temperature}
+                                            weatherCode={weatherData.currentWeather.weatherCode} iconSize={128}/>}
             {loading && <p>Loading...</p>}
             {!weatherData && <p>Cannot load the weather data</p>}
+            <Answer weatherData={weatherData}/>
         </React.Fragment>
     )
 }

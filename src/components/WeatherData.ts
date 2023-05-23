@@ -18,13 +18,13 @@ export interface WeatherData {
     };
     hourly: {
         time: string[];
-        temperature: string[];
-        humidity: string[];
-        windSpeed: string[];
-        snowfall: string[];
-        rain: string[];
-        showers: string[];
-        snowDepth: string[];
-        visibility: string[];
+        temperature: number[];
+        humidity: number[];
+        windSpeed: number[];
+        snowfall: number[];
+        rain: number[];
+        showers: number[];
+        snowDepth: number[];
+        visibility: number[];
     };
 }

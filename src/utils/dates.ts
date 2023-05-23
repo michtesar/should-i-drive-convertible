@@ -6,7 +6,6 @@ export function getCurrentDate(): string {
     return `${year}-${month}-${day}`;
 }
 
-export function getCurrentTime(): string {
-    const currentDate = new Date();
-    return currentDate.toISOString();
+export function getCurrentTime(): Date {
+    return new Date();
 }
