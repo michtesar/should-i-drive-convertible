@@ -13,7 +13,7 @@ export const Answer = ({weatherData}: AnswerInterface) => {
 
     return (
         <React.Fragment>
-            {weatherData && checkWeatherLimits(weatherData) ? 'yes' : 'no'}
+            {weatherData && checkWeatherLimits(weatherData) ? <h2>Yes</h2> : <h2>No</h2>}
             {weatherData && <DetailView weatherData={weatherData} />}
             {/*{weatherData && <p>{JSON.stringify(weatherData.hourly, null, 4)}</p>}*/}
             {/*{weatherData && <p>{JSON.stringify(weatherData.hourly.time, null, 4)}</p>}*/}
