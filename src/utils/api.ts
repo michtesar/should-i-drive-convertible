@@ -1,26 +1,43 @@
 import axios from "axios";
 import {WeatherData} from "../components/WeatherData";
+import {getCurrentDate} from "./dates";
 
-const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const BASE_URL = 'https://api.open-meteo.com/v1/forecast';
 
 export const fetchWeatherData = async (latitude: number, longitude: number): Promise<WeatherData> => {
-    const url = `${BASE_URL}?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+    const today = getCurrentDate()
+    const url = `${BASE_URL}?latitude=${latitude}&longitude=${longitude}&start_date=${today}&end_date=${today}&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m,snowfall,rain,showers,snow_depth,visibility`
     const response = await axios.get(url);
-    console.log(response)
-    const {main, weather, visibility, wind, sys} = response.data;
+    const {current_weather, hourly_units, hourly} = response.data;
 
     return {
-        temperature: main.temp,
-        weatherDescription: weather[0].description,
-        feelsLike: main.feels_like,
-        temperatureMin: main.temp_min,
-        temperatureMax: main.temp_max,
-        pressure: main.pressure,
-        visibility: visibility,
-        wind: wind,
-        sunrise: sys.sunrise,
-        sunset: sys.sunset,
-        weather: weather[0].main
+        currentWeather: {
+            temperature: current_weather.temperature,
+            windSpeed: current_weather.windspeed,
+            windDirection: current_weather.winddirection,
+            weatherCode: current_weather.weathercode
+        },
+        hourlyUnits: {
+            time: hourly_units.time,
+            temperature: hourly_units.temperature_2m,
+            humidity: hourly_units.relativehumidity_2m,
+            windSpeed: hourly_units.windspeed_10m,
+            snowfall: hourly_units.snowfall,
+            rain: hourly_units.rain,
+            showers: hourly_units.showers,
+            snowDepth: hourly_units.snow_depth,
+            visibility: hourly_units.visibility
+        },
+        hourly: {
+            time: hourly.time,
+            temperature: hourly.temperature_2m,
+            humidity: hourly.relativehumidity_2m,
+            windSpeed: hourly.windspeed_10m,
+            snowfall: hourly.snowfall,
+            rain: hourly.rain,
+            showers: hourly.showers,
+            snowDepth: hourly.snow_depth,
+            visibility: hourly.visibility
+        }
     };
 };
