@@ -1,5 +1,6 @@
 import React from "react"
 import {LimitCheck} from "./DetailView";
+import "../App.css"
 
 interface WeatherCheckInterface {
     name: string
@@ -10,13 +11,19 @@ interface WeatherCheckInterface {
 
 export const WeatherCheck = ({name, units, limit, threshold}: WeatherCheckInterface) => {
     return (
-        <div style={{textAlign: 'left'}}>
-            <p>{name} {units}: {limit.ok ? "✅" : "🛑"}</p>
+        <div className={`WeatherCheck ${limit.ok ? 'ok' : 'notOK'}`} style={{textAlign: 'left'}}>
+            <h2>{name} ({units})</h2>
             {!limit.ok &&
-                <p>Threshold {threshold} {units} but {limit.min}-{limit.max} {units}</p>
+                <div>
+                    <p>Limit is <strong>{threshold} {units}</strong></p>
+                    <p>Average from <strong>{limit.min}</strong> to <strong>{limit.max}</strong> {units}</p>
+                </div>
             }
             {limit.ok &&
-                <p>Threshold {threshold} {units} average {limit.average.toFixed(0)} {units}</p>
+                <div>
+                    <p>Limit is <strong>{threshold}</strong> {units}</p>
+                    <p>Average <strong>{limit.average.toFixed(0)}</strong> {units}</p>
+                </div>
             }
         </div>
     )
