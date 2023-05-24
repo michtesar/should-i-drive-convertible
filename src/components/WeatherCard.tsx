@@ -39,7 +39,7 @@ export const WeatherCard: React.FC = () => {
             {loading && <TailSpin
                 height="80"
                 width="80"
-                color="#4fa94d"
+                color="#ffffff"
                 ariaLabel="tail-spin-loading"
                 radius="1"
                 wrapperStyle={{}}
