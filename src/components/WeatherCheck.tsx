@@ -10,7 +10,10 @@ interface WeatherCheckInterface {
 export const WeatherCheck = ({name, units, limit}: WeatherCheckInterface) => {
     return (
         <React.Fragment>
-            <p>{name} {units}: {JSON.stringify(limit, null, 2)}</p>
+            <p>{name} {units}: {limit.ok ? "✅" : "🛑"}</p>
+            {!limit.ok &&
+                <p>{limit.min}-{limit.max} {units}</p>
+            }
         </React.Fragment>
     )
 }
