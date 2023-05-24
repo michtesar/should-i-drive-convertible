@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/should-i-drive-convertible/static/css/main.073c9b0a.css",
-    "main.js": "/should-i-drive-convertible/static/js/main.c55805a4.js",
+    "main.css": "/should-i-drive-convertible/static/css/main.cefdfed6.css",
+    "main.js": "/should-i-drive-convertible/static/js/main.8a6aeeb9.js",
     "static/js/787.1ab927dc.chunk.js": "/should-i-drive-convertible/static/js/787.1ab927dc.chunk.js",
     "index.html": "/should-i-drive-convertible/index.html",
-    "main.073c9b0a.css.map": "/should-i-drive-convertible/static/css/main.073c9b0a.css.map",
-    "main.c55805a4.js.map": "/should-i-drive-convertible/static/js/main.c55805a4.js.map",
+    "main.cefdfed6.css.map": "/should-i-drive-convertible/static/css/main.cefdfed6.css.map",
+    "main.8a6aeeb9.js.map": "/should-i-drive-convertible/static/js/main.8a6aeeb9.js.map",
     "787.1ab927dc.chunk.js.map": "/should-i-drive-convertible/static/js/787.1ab927dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.c55805a4.js"
+    "static/css/main.cefdfed6.css",
+    "static/js/main.8a6aeeb9.js"
   ]
 }
