@@ -9,11 +9,11 @@ interface WeatherCheckInterface {
 
 export const WeatherCheck = ({name, units, limit}: WeatherCheckInterface) => {
     return (
-        <React.Fragment>
+        <div style={{textAlign: 'left'}}>
             <p>{name} {units}: {limit.ok ? "✅" : "🛑"}</p>
             {!limit.ok &&
                 <p>{limit.min}-{limit.max} {units}</p>
             }
-        </React.Fragment>
+        </div>
     )
 }
