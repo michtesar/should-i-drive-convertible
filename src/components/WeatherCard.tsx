@@ -4,6 +4,7 @@ import {fetchWeatherData} from "../utils/api";
 import {Answer} from "./Answer";
 import {WeatherData} from "./WeatherData";
 import {CurrentWeather} from "./CurrentWeather";
+import {TailSpin} from "react-loader-spinner";
 
 export const WeatherCard: React.FC = () => {
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
@@ -35,9 +36,17 @@ export const WeatherCard: React.FC = () => {
             {weatherData && <CurrentWeather temperature={weatherData?.currentWeather.temperature}
                                             temperatureUnits={weatherData?.hourlyUnits.temperature}
                                             weatherCode={weatherData.currentWeather.weatherCode} iconSize={128}/>}
-            {loading && <p>Loading...</p>}
-            {!weatherData && <p>Cannot load the weather data</p>}
-            <Answer weatherData={weatherData}/>
+            {loading && <TailSpin
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+            />}
+            {weatherData && <Answer weatherData={weatherData}/>}
         </React.Fragment>
     )
 }
