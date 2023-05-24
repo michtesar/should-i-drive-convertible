@@ -43,52 +43,50 @@ function checkIfSmaller(threshold: number, values: number[]): LimitCheck {
 
 export const DetailView = (props: { weatherData: WeatherData }) => {
     const {hourly, hourlyUnits} = props.weatherData
-
-    const {time, humidity, rain, snowfall, showers, snowDepth, visibility, temperature, windSpeed} = hourly
+    const {humidity, rain, snowfall, showers, snowDepth, visibility, temperature, windSpeed} = hourly
 
     return (
         <React.Fragment>
             <div id={'detail-view'} style={{fontSize: 'x-small'}}>
-                {/*<p>Time: {JSON.stringify(time)}</p>*/}
                 <WeatherCheck
                     name={'Temperature'}
                     units={hourlyUnits.temperature}
-                    limit={checkIfSmaller(WeatherLimits.minTemperature, hourly.temperature)}
+                    limit={checkIfSmaller(WeatherLimits.minTemperature, temperature)}
                 />
                 <WeatherCheck
                     name={'Humidity'}
                     units={hourlyUnits.humidity}
-                    limit={checkIfBigger(WeatherLimits.maxHumidity, hourly.humidity)}
+                    limit={checkIfBigger(WeatherLimits.maxHumidity, humidity)}
                 />
                 <WeatherCheck
                     name={'Rain'}
                     units={hourlyUnits.rain}
-                    limit={checkIfBigger(WeatherLimits.maxRain, hourly.rain)}
+                    limit={checkIfBigger(WeatherLimits.maxRain, rain)}
                 />
                 <WeatherCheck
                     name={'Snowfall'}
                     units={hourlyUnits.snowfall}
-                    limit={checkIfBigger(WeatherLimits.maxSnowfall, hourly.snowfall)}
+                    limit={checkIfBigger(WeatherLimits.maxSnowfall, snowfall)}
                 />
                 <WeatherCheck
                     name={'Showers'}
                     units={hourlyUnits.showers}
-                    limit={checkIfBigger(WeatherLimits.maxShowers, hourly.showers)}
+                    limit={checkIfBigger(WeatherLimits.maxShowers, showers)}
                 />
                 <WeatherCheck
                     name={'Snow depth'}
                     units={hourlyUnits.snowDepth}
-                    limit={checkIfBigger(WeatherLimits.maxSnowDepth, hourly.snowDepth)}
+                    limit={checkIfBigger(WeatherLimits.maxSnowDepth, snowDepth)}
                 />
                 <WeatherCheck
                     name={'Visibility'}
                     units={hourlyUnits.visibility}
-                    limit={checkIfSmaller(WeatherLimits.minVisibility, hourly.visibility)}
+                    limit={checkIfSmaller(WeatherLimits.minVisibility, visibility)}
                 />
                 <WeatherCheck
                     name={'Wind speed'}
                     units={hourlyUnits.windSpeed}
-                    limit={checkIfBigger(WeatherLimits.maxWindSpeed, hourly.windSpeed)}
+                    limit={checkIfBigger(WeatherLimits.maxWindSpeed, windSpeed)}
                 />
             </div>
         </React.Fragment>
