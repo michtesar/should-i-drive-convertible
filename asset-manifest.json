@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/should-i-drive-convertible/static/css/main.073c9b0a.css",
-    "main.js": "/should-i-drive-convertible/static/js/main.f50a7927.js",
+    "main.js": "/should-i-drive-convertible/static/js/main.20cf85f3.js",
     "static/js/787.1ab927dc.chunk.js": "/should-i-drive-convertible/static/js/787.1ab927dc.chunk.js",
     "index.html": "/should-i-drive-convertible/index.html",
     "main.073c9b0a.css.map": "/should-i-drive-convertible/static/css/main.073c9b0a.css.map",
-    "main.f50a7927.js.map": "/should-i-drive-convertible/static/js/main.f50a7927.js.map",
+    "main.20cf85f3.js.map": "/should-i-drive-convertible/static/js/main.20cf85f3.js.map",
     "787.1ab927dc.chunk.js.map": "/should-i-drive-convertible/static/js/787.1ab927dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.f50a7927.js"
+    "static/js/main.20cf85f3.js"
   ]
 }
