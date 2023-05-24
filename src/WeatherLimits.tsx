@@ -1,6 +1,6 @@
 export const WeatherLimits = {
     minTemperature: 15,     // C
-    maxHumidity: 65,        // %
+    maxHumidity: 75,        // %
     maxWindSpeed: 30,       // kmh
     maxSnowfall: 0,         // cm
     maxRain: 0,             // mm
