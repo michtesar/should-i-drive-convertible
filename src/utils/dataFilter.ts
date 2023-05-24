@@ -39,7 +39,7 @@ export function checkWeatherLimits(weatherData: WeatherData): boolean {
         !isAnyBigger(snowDepth, WeatherLimits.maxSnowDepth) &&
         !isAnyBigger(snowfall, WeatherLimits.maxSnowfall) &&
         !isAnyBigger(rain, WeatherLimits.maxRain) &&
-        // !isAnyBigger(humidity, WeatherLimits.maxHumidity) &&
+        !isAnyBigger(humidity, WeatherLimits.maxHumidity) &&
         !isAnyBigger(windSpeed, WeatherLimits.maxWindSpeed)
     )
 }
