@@ -9,7 +9,7 @@ export const CurrentWeather = (props: {
     iconSize: number
 }) => {
     return (
-        <Stack spacing={2} direction={'row'} alignContent={'center'} alignItems={'center'}>
+        <Stack spacing={2} direction={'row'} alignContent={'center'} alignItems={'center'} margin={'5%'}>
             <WeatherIcon weatherCode={props.weatherCode} iconSize={props.iconSize}/>
             <Typography variant={'h2'}>{props.temperature} {props.temperatureUnits}</Typography>
         </Stack>
