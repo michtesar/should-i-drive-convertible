@@ -39,7 +39,7 @@ export const WeatherCard: React.FC = () => {
                     temperature={weatherData.currentWeather.temperature}
                     temperatureUnits={weatherData.hourlyUnits.temperature}
                     weatherCode={weatherData.currentWeather.weatherCode}
-                    iconSize={128}
+                    iconSize={100}
                 />
             }
             {loading && <TailSpin

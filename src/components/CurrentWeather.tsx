@@ -1,6 +1,6 @@
 import React from "react"
 import {WeatherIcon} from "./WeatherIcon";
-import {Stack} from "@mui/material";
+import {Stack, Typography} from "@mui/material";
 
 export const CurrentWeather = (props: {
     temperature: number,
@@ -9,10 +9,9 @@ export const CurrentWeather = (props: {
     iconSize: number
 }) => {
     return (
-        <Stack spacing={2}>
-            <p>{props.temperature} {props.temperatureUnits}</p>
-            <p>{JSON.stringify(props.weatherCode)}</p>
+        <Stack spacing={2} direction={'row'} alignContent={'center'} alignItems={'center'}>
             <WeatherIcon weatherCode={props.weatherCode} iconSize={props.iconSize}/>
+            <Typography variant={'h2'}>{props.temperature} {props.temperatureUnits}</Typography>
         </Stack>
     )
 }
