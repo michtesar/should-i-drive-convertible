@@ -1,32 +1,62 @@
 import {WeatherData} from "../components/WeatherData";
-import {getCurrentTime} from "./dates";
-import {isAnyBigger, isAnySmaller, isDateLaterThan} from "./helpers";
+import {isAnyBigger, isAnySmaller} from "./helpers";
 import {WeatherLimits} from "../WeatherLimits";
 
-export function dataFilter(weatherData: WeatherData | null) {
+interface FilteredHourlyData {
+    time: string[];
+    rain: number[];
+    snowDepth: number[];
+    visibility: number[];
+    temperature: number[];
+    windSpeed: number[];
+    snowfall: number[];
+    humidity: number[];
+    showers: number[];
+}
+
+export function dataFilter(weatherData: WeatherData | null): WeatherData | null {
+    const nHours = 4
+
     if (!weatherData) {
-        return null
+        return null;
     }
 
-    const {time} = weatherData.hourly
-    const now = getCurrentTime()
+    const {time, rain, snowDepth, visibility, temperature, windSpeed, snowfall, humidity, showers} = weatherData.hourly;
 
-    for (let i = 0; i < time.length; i++) {
-        const t = new Date(time[i])
-        console.log("Time now", now, " vs Time forecast", t, "bigger?", isDateLaterThan(now, t))
-        // if (now > t) {
-        //     // Pop all unused elements from now to the end of the day
-        //     weatherData.hourly.time.splice(i, 1)
-        //     weatherData.hourly.temperature.splice(i, 1)
-        //     weatherData.hourly.visibility.splice(i, 1)
-        //     weatherData.hourly.rain.splice(i, 1)
-        //     weatherData.hourly.humidity.splice(i, 1)
-        //     weatherData.hourly.windSpeed.splice(i, 1)
-        //     weatherData.hourly.snowfall.splice(i, 1)
-        //     weatherData.hourly.snowDepth.splice(i, 1)
-        //     weatherData.hourly.showers.splice(i, 1)
-        // }
+    const currentTime = new Date();
+    const endTime = new Date(currentTime.getTime() + nHours * 60 * 60 * 1000);
+
+    const filtered: FilteredHourlyData = {
+        time: [],
+        rain: [],
+        snowDepth: [],
+        visibility: [],
+        temperature: [],
+        windSpeed: [],
+        snowfall: [],
+        humidity: [],
+        showers: [],
+    };
+
+    for (let index = 0; index < time.length; index++) {
+        const currentTimeValue = new Date(time[index]);
+        if (currentTimeValue >= currentTime && currentTimeValue <= endTime) {
+            filtered.time.push(time[index]);
+            filtered.rain.push(rain[index]);
+            filtered.snowDepth.push(snowDepth[index]);
+            filtered.visibility.push(visibility[index]);
+            filtered.temperature.push(temperature[index]);
+            filtered.windSpeed.push(windSpeed[index]);
+            filtered.snowfall.push(snowfall[index]);
+            filtered.humidity.push(humidity[index]);
+            filtered.showers.push(showers[index]);
+        }
     }
+
+    const data: WeatherData = structuredClone(weatherData)
+    data.hourly = filtered
+    console.log(data)
+    return data;
 }
 
 

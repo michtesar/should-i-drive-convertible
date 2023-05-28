@@ -5,7 +5,3 @@ export function getCurrentDate(): string {
     const day = String(currentDate.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
 }
-
-export function getCurrentTime(): Date {
-    return new Date();
-}

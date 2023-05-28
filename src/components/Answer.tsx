@@ -9,16 +9,12 @@ interface AnswerInterface {
 
 
 export const Answer = ({weatherData}: AnswerInterface) => {
-    dataFilter(weatherData)
+    const filteredData = dataFilter(weatherData)
 
     return (
         <React.Fragment>
-            {weatherData && checkWeatherLimits(weatherData) ? <h2>Yes</h2> : <h2>No</h2>}
-            {weatherData && <DetailView weatherData={weatherData} />}
-            {/*{weatherData && <p>{JSON.stringify(weatherData.hourly, null, 4)}</p>}*/}
-            {/*{weatherData && <p>{JSON.stringify(weatherData.hourly.time, null, 4)}</p>}*/}
+            {filteredData && checkWeatherLimits(filteredData) ? <h2>Yes</h2> : <h2>No</h2>}
+            {filteredData && <DetailView weatherData={filteredData}/>}
         </React.Fragment>
     )
-
-
 }
