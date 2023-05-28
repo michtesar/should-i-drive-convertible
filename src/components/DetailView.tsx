@@ -66,14 +66,6 @@ export const DetailView = (props: { weatherData: WeatherData }) => {
             </Grid>
             <Grid item xs={4}>
                 <WeatherCheck
-                    name={'Humidity'}
-                    units={hourlyUnits.humidity}
-                    limit={checkIfBigger(WeatherLimits.maxHumidity, humidity)}
-                    threshold={WeatherLimits.maxHumidity}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
                     name={'Rain'}
                     units={hourlyUnits.rain}
                     limit={checkIfBigger(WeatherLimits.maxRain, rain)}
@@ -86,6 +78,14 @@ export const DetailView = (props: { weatherData: WeatherData }) => {
                     units={hourlyUnits.showers}
                     limit={checkIfBigger(WeatherLimits.maxShowers, showers)}
                     threshold={WeatherLimits.maxShowers}
+                />
+            </Grid>
+            <Grid item xs={4}>
+                <WeatherCheck
+                    name={'Humidity'}
+                    units={hourlyUnits.humidity}
+                    limit={checkIfBigger(WeatherLimits.maxHumidity, humidity)}
+                    threshold={WeatherLimits.maxHumidity}
                 />
             </Grid>
             <Grid item xs={4}>
