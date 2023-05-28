@@ -61,7 +61,7 @@ export const WeatherCard: React.FC = () => {
                 visible={true}
             />}
             {weatherData && !loading && <Answer weatherData={weatherData}/>}
-            {weatherData && <AppInfo weatherData={weatherData} location={location} />}
+            {weatherData && <AppInfo weatherData={weatherData} location={location}/>}
         </React.Fragment>
     )
 }
