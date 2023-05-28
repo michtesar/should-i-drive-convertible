@@ -1,7 +1,7 @@
 import React from "react";
 import {WeatherData} from "./WeatherData";
 import {WeatherCheck} from "./WeatherCheck";
-import {WeatherLimits} from "../WeatherLimits";
+import {WeatherLimits} from "../utils/WeatherLimits";
 
 export interface LimitCheck {
     ok: boolean

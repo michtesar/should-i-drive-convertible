@@ -1,6 +1,6 @@
 import {WeatherData} from "../components/WeatherData";
 import {isAnyBigger, isAnySmaller} from "./helpers";
-import {WeatherLimits} from "../WeatherLimits";
+import {WeatherLimits} from "./WeatherLimits";
 
 interface FilteredHourlyData {
     time: string[];
