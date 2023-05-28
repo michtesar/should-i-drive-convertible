@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/should-i-lower-the-roof-down/static/css/main.cefdfed6.css",
-    "main.js": "/should-i-lower-the-roof-down/static/js/main.93fe7b23.js",
+    "main.js": "/should-i-lower-the-roof-down/static/js/main.6e6e750a.js",
     "static/js/787.1ab927dc.chunk.js": "/should-i-lower-the-roof-down/static/js/787.1ab927dc.chunk.js",
     "index.html": "/should-i-lower-the-roof-down/index.html",
     "main.cefdfed6.css.map": "/should-i-lower-the-roof-down/static/css/main.cefdfed6.css.map",
-    "main.93fe7b23.js.map": "/should-i-lower-the-roof-down/static/js/main.93fe7b23.js.map",
+    "main.6e6e750a.js.map": "/should-i-lower-the-roof-down/static/js/main.6e6e750a.js.map",
     "787.1ab927dc.chunk.js.map": "/should-i-lower-the-roof-down/static/js/787.1ab927dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cefdfed6.css",
-    "static/js/main.93fe7b23.js"
+    "static/js/main.6e6e750a.js"
   ]
 }
