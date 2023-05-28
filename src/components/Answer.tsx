@@ -15,7 +15,7 @@ export const Answer = ({weatherData}: AnswerInterface) => {
         const answer: string = checkWeatherLimits(filteredData) ? 'Yes' : 'No'
         return (
             <React.Fragment>
-                {answer && <Typography variant={'h2'}>{answer}</Typography>}
+                {answer && <Typography variant={'h2'}><strong>{answer}</strong></Typography>}
                 {filteredData && <DetailView weatherData={filteredData}/>}
             </React.Fragment>
         )
