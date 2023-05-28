@@ -1,6 +1,7 @@
 import React from "react"
 import {LimitCheck} from "./DetailView";
 import "../App.css"
+import {Stack, Typography} from "@mui/material";
 
 interface WeatherCheckInterface {
     name: string
@@ -12,18 +13,18 @@ interface WeatherCheckInterface {
 export const WeatherCheck = ({name, units, limit, threshold}: WeatherCheckInterface) => {
     return (
         <div className={`WeatherCheck ${limit.ok ? 'ok' : 'notOK'}`} style={{textAlign: 'left'}}>
-            <h2>{name} ({units})</h2>
+            <Typography variant={'h6'}>{name} ({units})</Typography>
             {!limit.ok &&
-                <div>
-                    <p>Limit is <strong>{threshold} {units}</strong></p>
-                    <p>Average from <strong>{limit.min}</strong> to <strong>{limit.max}</strong> {units}</p>
-                </div>
+                <Stack>
+                    <Typography variant={'body2'}>Limit is <strong>{threshold} {units}</strong></Typography>
+                    <Typography variant={'body2'}>Average from <strong>{limit.min}</strong> to <strong>{limit.max}</strong> {units}</Typography>
+                </Stack>
             }
             {limit.ok &&
-                <div>
-                    <p>Limit is <strong>{threshold}</strong> {units}</p>
-                    <p>Average <strong>{limit.average.toFixed(0)}</strong> {units}</p>
-                </div>
+                <Stack>
+                    <Typography variant={'body2'}>Limit is <strong>{threshold}</strong> {units}</Typography>
+                    <Typography variant={'body2'}>Average <strong>{limit.average.toFixed(0)}</strong> {units}</Typography>
+                </Stack>
             }
         </div>
     )
