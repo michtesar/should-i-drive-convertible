@@ -82,26 +82,10 @@ export const DetailView = (props: { weatherData: WeatherData }) => {
             </Grid>
             <Grid item xs={4}>
                 <WeatherCheck
-                    name={'Snowfall'}
-                    units={hourlyUnits.snowfall}
-                    limit={checkIfBigger(WeatherLimits.maxSnowfall, snowfall)}
-                    threshold={WeatherLimits.maxSnowfall}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
                     name={'Showers'}
                     units={hourlyUnits.showers}
                     limit={checkIfBigger(WeatherLimits.maxShowers, showers)}
                     threshold={WeatherLimits.maxShowers}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Snow depth'}
-                    units={hourlyUnits.snowDepth}
-                    limit={checkIfBigger(WeatherLimits.maxSnowDepth, snowDepth)}
-                    threshold={WeatherLimits.maxSnowDepth}
                 />
             </Grid>
             <Grid item xs={4}>
@@ -118,6 +102,22 @@ export const DetailView = (props: { weatherData: WeatherData }) => {
                     units={hourlyUnits.windSpeed}
                     limit={checkIfBigger(WeatherLimits.maxWindSpeed, windSpeed)}
                     threshold={WeatherLimits.maxWindSpeed}
+                />
+            </Grid>
+            <Grid item xs={4}>
+                <WeatherCheck
+                    name={'Snowfall'}
+                    units={hourlyUnits.snowfall}
+                    limit={checkIfBigger(WeatherLimits.maxSnowfall, snowfall)}
+                    threshold={WeatherLimits.maxSnowfall}
+                />
+            </Grid>
+            <Grid item xs={4}>
+                <WeatherCheck
+                    name={'Snow depth'}
+                    units={hourlyUnits.snowDepth}
+                    limit={checkIfBigger(WeatherLimits.maxSnowDepth, snowDepth)}
+                    threshold={WeatherLimits.maxSnowDepth}
                 />
             </Grid>
         </Grid>
