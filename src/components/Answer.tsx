@@ -11,12 +11,15 @@ interface AnswerInterface {
 
 export const Answer = ({weatherData}: AnswerInterface) => {
     const filteredData = dataFilter(weatherData)
-
-    return (
-        <React.Fragment>
-            {filteredData && checkWeatherLimits(filteredData) ?
-                <Typography variant={'h2'}>Yes</Typography> : <Typography variant={'h2'}>No</Typography>}
-            {filteredData && <DetailView weatherData={filteredData}/>}
-        </React.Fragment>
-    )
+    if (filteredData) {
+        const answer: string = checkWeatherLimits(filteredData) ? 'Yes' : 'No'
+        return (
+            <React.Fragment>
+                {answer && <Typography variant={'h2'}>{answer}</Typography>}
+                {filteredData && <DetailView weatherData={filteredData}/>}
+            </React.Fragment>
+        )
+    } else {
+        return null
+    }
 }
