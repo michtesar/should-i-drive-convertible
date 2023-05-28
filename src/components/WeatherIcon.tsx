@@ -8,9 +8,7 @@ interface WeatherIconInterface {
 }
 
 export const WeatherIcon = ({weatherCode, iconSize}: WeatherIconInterface) => {
-    if (!weatherCode) {
-        return null
-    }
+    if (!weatherCode && weatherCode !== 0) {return null}
 
     const clear = [0, 1, 2, 3]
     const fog = [45, 48]
@@ -42,10 +40,5 @@ export const WeatherIcon = ({weatherCode, iconSize}: WeatherIconInterface) => {
         }
     }
 
-    return (
-        <React.Fragment>
-            {icon()}
-        </React.Fragment>
-    )
-
+    return <>{icon()}</>
 }

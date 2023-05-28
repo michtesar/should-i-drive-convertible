@@ -1,5 +1,6 @@
 import React from "react"
 import {WeatherIcon} from "./WeatherIcon";
+import {Stack} from "@mui/material";
 
 export const CurrentWeather = (props: {
     temperature: number,
@@ -8,9 +9,10 @@ export const CurrentWeather = (props: {
     iconSize: number
 }) => {
     return (
-        <React.Fragment>
+        <Stack spacing={2}>
             <p>{props.temperature} {props.temperatureUnits}</p>
+            <p>{JSON.stringify(props.weatherCode)}</p>
             <WeatherIcon weatherCode={props.weatherCode} iconSize={props.iconSize}/>
-        </React.Fragment>
+        </Stack>
     )
 }

@@ -29,12 +29,12 @@ export const WeatherCard: React.FC = () => {
             }
         };
 
-        fetchWeather()
+        fetchWeather().then()
     }, []);
 
     return (
         <React.Fragment>
-            {weatherData && !loading &&
+            {weatherData &&
                 <CurrentWeather
                     temperature={weatherData.currentWeather.temperature}
                     temperatureUnits={weatherData.hourlyUnits.temperature}
