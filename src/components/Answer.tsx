@@ -2,6 +2,7 @@ import {WeatherData} from "./WeatherData";
 import {checkWeatherLimits, dataFilter} from "../utils/dataFilter";
 import React from "react";
 import {DetailView} from "./DetailView";
+import {Typography} from "@mui/material";
 
 interface AnswerInterface {
     weatherData: WeatherData | null
@@ -13,7 +14,8 @@ export const Answer = ({weatherData}: AnswerInterface) => {
 
     return (
         <React.Fragment>
-            {filteredData && checkWeatherLimits(filteredData) ? <h2>Yes</h2> : <h2>No</h2>}
+            {filteredData && checkWeatherLimits(filteredData) ?
+                <Typography variant={'h2'}>Yes</Typography> : <Typography variant={'h2'}>No</Typography>}
             {filteredData && <DetailView weatherData={filteredData}/>}
         </React.Fragment>
     )
