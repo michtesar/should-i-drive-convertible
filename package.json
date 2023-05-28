@@ -1,7 +1,7 @@
 {
   "name": "convertible",
-  "version": "0.1.2",
-  "homepage": "https://michtesar.github.io/should-i-drive-convertible",
+  "version": "1.0.1",
+  "homepage": "https://michtesar.github.io/should-i-lower-the-roof-down",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.0",
