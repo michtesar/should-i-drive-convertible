@@ -5,11 +5,18 @@ import {Answer} from "./Answer";
 import {WeatherData} from "./WeatherData";
 import {CurrentWeather} from "./CurrentWeather";
 import {TailSpin} from "react-loader-spinner";
+import {AppInfo} from "./AppInfo";
+
+
+export interface Location {
+    latitude: number
+    longitude: number
+}
 
 export const WeatherCard: React.FC = () => {
-
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
     const [loading, setLoading] = useState(true);
+    const [location, setLocation] = useState<Location | null>(null)
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -17,6 +24,7 @@ export const WeatherCard: React.FC = () => {
                 // Fetch user's current location using geolocation API
                 navigator.geolocation.getCurrentPosition(async (position) => {
                     const {latitude, longitude} = position.coords;
+                    setLocation({latitude: latitude, longitude: longitude})
 
                     // Fetch weather data based on user's location
                     const data = await fetchWeatherData(latitude, longitude);
@@ -53,6 +61,7 @@ export const WeatherCard: React.FC = () => {
                 visible={true}
             />}
             {weatherData && !loading && <Answer weatherData={weatherData}/>}
+            {weatherData && <AppInfo weatherData={weatherData} location={location} />}
         </React.Fragment>
     )
 }

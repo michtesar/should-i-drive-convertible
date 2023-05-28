@@ -1,0 +1,1 @@
+export const N_HOURS = 4

@@ -1,6 +1,7 @@
 import {WeatherData} from "../components/WeatherData";
 import {isAnyBigger, isAnySmaller} from "./helpers";
 import {WeatherLimits} from "./WeatherLimits";
+import {N_HOURS} from "../config";
 
 interface FilteredHourlyData {
     time: string[];
@@ -15,8 +16,6 @@ interface FilteredHourlyData {
 }
 
 export function dataFilter(weatherData: WeatherData | null): WeatherData | null {
-    const nHours = 4
-
     if (!weatherData) {
         return null;
     }
@@ -24,7 +23,7 @@ export function dataFilter(weatherData: WeatherData | null): WeatherData | null 
     const {time, rain, snowDepth, visibility, temperature, windSpeed, snowfall, humidity, showers} = weatherData.hourly;
 
     const currentTime = new Date();
-    const endTime = new Date(currentTime.getTime() + nHours * 60 * 60 * 1000);
+    const endTime = new Date(currentTime.getTime() + N_HOURS * 60 * 60 * 1000);
 
     const filtered: FilteredHourlyData = {
         time: [],
