@@ -2,7 +2,7 @@ import React from "react";
 import {WeatherData} from "./WeatherData";
 import {WeatherCheck} from "./WeatherCheck";
 import {WeatherLimits} from "../utils/WeatherLimits";
-import {Grid} from "@mui/material";
+import {Stack} from "@mui/material";
 
 export interface LimitCheck {
     ok: boolean
@@ -55,71 +55,55 @@ export const DetailView = (props: { weatherData: WeatherData }) => {
     const {humidity, rain, snowfall, showers, snowDepth, visibility, temperature, windSpeed} = hourly
 
     return (
-        <Grid container spacing={2} width={'60%'} marginTop={'5%'}>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Temperature'}
-                    units={hourlyUnits.temperature}
-                    limit={checkIfSmaller(WeatherLimits.minTemperature, temperature)}
-                    threshold={WeatherLimits.minTemperature}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Rain'}
-                    units={hourlyUnits.rain}
-                    limit={checkIfBigger(WeatherLimits.maxRain, rain)}
-                    threshold={WeatherLimits.maxRain}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Showers'}
-                    units={hourlyUnits.showers}
-                    limit={checkIfBigger(WeatherLimits.maxShowers, showers)}
-                    threshold={WeatherLimits.maxShowers}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Humidity'}
-                    units={hourlyUnits.humidity}
-                    limit={checkIfBigger(WeatherLimits.maxHumidity, humidity)}
-                    threshold={WeatherLimits.maxHumidity}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Visibility'}
-                    units={hourlyUnits.visibility}
-                    limit={checkIfSmaller(WeatherLimits.minVisibility, visibility)}
-                    threshold={WeatherLimits.minVisibility}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Wind'}
-                    units={hourlyUnits.windSpeed}
-                    limit={checkIfBigger(WeatherLimits.maxWindSpeed, windSpeed)}
-                    threshold={WeatherLimits.maxWindSpeed}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Snowfall'}
-                    units={hourlyUnits.snowfall}
-                    limit={checkIfBigger(WeatherLimits.maxSnowfall, snowfall)}
-                    threshold={WeatherLimits.maxSnowfall}
-                />
-            </Grid>
-            <Grid item xs={4}>
-                <WeatherCheck
-                    name={'Snow depth'}
-                    units={hourlyUnits.snowDepth}
-                    limit={checkIfBigger(WeatherLimits.maxSnowDepth, snowDepth)}
-                    threshold={WeatherLimits.maxSnowDepth}
-                />
-            </Grid>
-        </Grid>
+        <Stack marginTop={'3%'}>
+            <WeatherCheck
+                name={'Temperature'}
+                units={hourlyUnits.temperature}
+                limit={checkIfSmaller(WeatherLimits.minTemperature, temperature)}
+                threshold={WeatherLimits.minTemperature}
+            />
+            <WeatherCheck
+                name={'Rain'}
+                units={hourlyUnits.rain}
+                limit={checkIfBigger(WeatherLimits.maxRain, rain)}
+                threshold={WeatherLimits.maxRain}
+            />
+            <WeatherCheck
+                name={'Showers'}
+                units={hourlyUnits.showers}
+                limit={checkIfBigger(WeatherLimits.maxShowers, showers)}
+                threshold={WeatherLimits.maxShowers}
+            />
+            <WeatherCheck
+                name={'Humidity'}
+                units={hourlyUnits.humidity}
+                limit={checkIfBigger(WeatherLimits.maxHumidity, humidity)}
+                threshold={WeatherLimits.maxHumidity}
+            />
+            <WeatherCheck
+                name={'Visibility'}
+                units={hourlyUnits.visibility}
+                limit={checkIfSmaller(WeatherLimits.minVisibility, visibility)}
+                threshold={WeatherLimits.minVisibility}
+            />
+            <WeatherCheck
+                name={'Wind'}
+                units={hourlyUnits.windSpeed}
+                limit={checkIfBigger(WeatherLimits.maxWindSpeed, windSpeed)}
+                threshold={WeatherLimits.maxWindSpeed}
+            />
+            <WeatherCheck
+                name={'Snowfall'}
+                units={hourlyUnits.snowfall}
+                limit={checkIfBigger(WeatherLimits.maxSnowfall, snowfall)}
+                threshold={WeatherLimits.maxSnowfall}
+            />
+            <WeatherCheck
+                name={'Snow depth'}
+                units={hourlyUnits.snowDepth}
+                limit={checkIfBigger(WeatherLimits.maxSnowDepth, snowDepth)}
+                threshold={WeatherLimits.maxSnowDepth}
+            />
+        </Stack>
     )
 }
