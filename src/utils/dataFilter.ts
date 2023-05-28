@@ -55,7 +55,7 @@ export function dataFilter(weatherData: WeatherData | null): WeatherData | null 
 
     const data: WeatherData = structuredClone(weatherData)
     data.hourly = filtered
-    console.log(data)
+
     return data;
 }
 
