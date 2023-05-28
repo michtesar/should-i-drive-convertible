@@ -55,7 +55,7 @@ export const DetailView = (props: { weatherData: WeatherData }) => {
     const {humidity, rain, snowfall, showers, snowDepth, visibility, temperature, windSpeed} = hourly
 
     return (
-        <Grid container spacing={2} width={'70%'}>
+        <Grid container spacing={2} width={'70%'} marginTop={'5%'}>
             <Grid item xs={4}>
                 <WeatherCheck
                     name={'Temperature'}
